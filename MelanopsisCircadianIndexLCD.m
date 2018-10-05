@@ -1,10 +1,10 @@
 % Calculation of Circadian Index with LCD (iPad)
 
-function CI_LCD = CircadianIndexLCD(measure)
+function MCI_LCD = MelanopsisCircadianIndexLCD(measure)
 
     load WorkspaceCircadianRetinalData.mat % dove ho B e M di lambda
 
-    % CI calcolato sempre da 380 a 780. Tutte le lenti sono a passi di 5
+    % CI calcolato da 380 a 780. Tutte le lenti sono a passi di 5
    
     MlambdaVoluti = selezionaSottoSpettro(mlambdainterpolato, 380, 780, 1);
     iPadVoluti = selezionaSottoSpettro(ipad, 380, 780, 5);
@@ -20,6 +20,6 @@ function CI_LCD = CircadianIndexLCD(measure)
         tauVoluti = selezionaSottoSpettro(tau, 380, 780, 1);
         tauVoluti = tauVoluti(:,2);
 
-        CI_LCD.(nomeLente) = (sum(tauVoluti .* iPadVoluti .* MlambdaVoluti) ./ sum(iPadVoluti .* MlambdaVoluti))/100;
+        MCI_LCD.(nomeLente) = (sum(tauVoluti .* iPadVoluti .* MlambdaVoluti) ./ sum(iPadVoluti .* MlambdaVoluti))/100;
     end
 end
