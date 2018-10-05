@@ -22,7 +22,7 @@ function CI = CircadianIndex(measure)
 
     for i = 1:numel(nomiLenti)
         nomeLente = nomiLenti{i};
-        tau = misure.(nomeLente)(:,1:2); % lambda e tau
+        tau = measure.(nomeLente)(:,1:2); % lambda e tau
         tauVoluti = selezionaSottoSpettro(tau, 380, 780, 1);
         tauVoluti = tauVoluti(:,2);
 
