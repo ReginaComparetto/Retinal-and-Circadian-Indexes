@@ -5,7 +5,7 @@
 % ATTENZIONE AL RANGE DI LAMBDA E AL SALTO DI LAMBDA!!
 
 
-function NLCI = calcoloNLCI(misure)
+function NLCI = NonLinearCircadianIndex(measure)
 %function rapportoCL = calcoloindiciCL_lenti(misure)
 
 load workspaceINDICICIRCADIANI.mat;
@@ -59,11 +59,11 @@ end
     % CS_spettrofiltrato = struct();
     NLCI = struct();
 
-    nomiLenti = fieldnames(misure);
+    nomiLenti = fieldnames(measure);
     
     for i = 1:numel(nomiLenti)
         nomeLente = nomiLenti{i};
-        tau = misure.(nomeLente)(:,1:2); % lambda e tau
+        tau = measure.(nomeLente)(:,1:2); % lambda e tau
         tauVoluti = selezionaSottoSpettro(tau, 380, 780, 1);
         tauVoluti = tauVoluti(:,2) ./ 100;
         
