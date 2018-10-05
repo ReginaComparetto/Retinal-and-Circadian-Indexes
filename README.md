@@ -2,7 +2,7 @@
 
 This repository contains the MATLAB code to reproduce the numerical results of the paper "Mitigating retinal damage and circadian rhythm modification by blue-blocking spectacles lenses: evaluation parameters".
 In particular, the following numerical indexes are computed:
-- Retinal Index, Melanopsis Circadian Index, Circadian Index and Non Linear Circadian Index for _Standard D65_ illuminant (`RI_SD65`, `MCI_SD65`) and for _LCD Screen_ illuminant (`RI_LCD`, `MCI_LCD`);
+- Retinal Index, Melanopsis Circadian Index, Circadian Index and Non Linear Circadian Index for _Standard D65_ illuminant (`RI_SD65`, `MCI_SD65`) and for _LCD Screen_ illuminant (`RI_LCD`, `MCI_LCD`). Inside `CI` and `NLCI` you can choose the illuminant for this two indexes;
 - Solar UV, UVA, UVA Spectral Transmittance Factor (`TransmittUV`, `TransmittUVA`, `TransmittUVB`)
 - Recognition of Signal Light and Colour factor (`QRed`, `QYellow`, `QGreen`, `QBlue`)
 - Solar Blue Light Transmittance Factor (`transmittBlue`)
