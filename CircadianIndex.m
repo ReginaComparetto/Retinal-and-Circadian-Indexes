@@ -1,6 +1,6 @@
 % Script per il calcolo del Circadian Index con curva di Gall C lambda
 
-function CI = calcoloCircadianIndex_Gall(misure)
+function CI = CircadianIndex(misure)
 
     load workspaceINDICICIRCADIANI.mat;
     load WorkspaceCircadianRetinalData.mat;
