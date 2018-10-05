@@ -1,10 +1,10 @@
-% Calculation of the Circadian Index with illuminant SD65
+% Calculation of the Melanopsis Circadian Index with illuminant SD65
 
-function CI = CircadianIndexSD65(measure)
+function MCI = CircadianIndexSD65(measure)
 
     load WorkspaceCircadianRetinalData.mat % dove ho B e M di lambda
 
-    % CI calcolato sempre da 380 a 780. Tutte le lenti sono a passi di 5
+    % MCI sempre da 380 a 780. Tutte le lenti sono a passi di 5
    
     MlambdaVoluti = selezionaSottoSpettro(mlambdainterpolato, 380, 780, 1);
     illuminanteD65Voluti = selezionaSottoSpettro(illuminanteD65, 380, 780, 5);
@@ -20,6 +20,6 @@ function CI = CircadianIndexSD65(measure)
         tauVoluti = selezionaSottoSpettro(tau, 380, 780, 1);
         tauVoluti = tauVoluti(:,2);
 
-        CI.(nomeLente) = (sum(tauVoluti .* illuminanteD65Voluti .* MlambdaVoluti) ./ sum(illuminanteD65Voluti .* MlambdaVoluti))/100;
+        MCI.(nomeLente) = (sum(tauVoluti .* illuminanteD65Voluti .* MlambdaVoluti) ./ sum(illuminanteD65Voluti .* MlambdaVoluti))/100;
     end
 end
