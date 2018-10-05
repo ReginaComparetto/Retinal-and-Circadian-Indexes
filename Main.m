@@ -11,9 +11,9 @@ transmittBlue = RegulationTransmittBlueLight(measure);
 [TransmittUV, TransmittUVA, TransmittUVB] = RegulationTransmitUV(measure);
 [QRed, QYellow, QGreen, QBlue] = RegulationQrgby(measure);
 
-CI_SD65 = CircadianIndexSD65(measure);
+MCI_SD65 = MelanopsisCircadianIndexSD65(measure);
 RI_SD65 = RetinalIndexSD65(measure);
 RI_LCD = RetinalIndexLCD(measure);
-CI_LCD = CircadianIndexLCD(measure);
+MCI_LCD = MelanopsisCircadianIndexLCD(measure);
 
 ScotopicEfficiency = calcoloEffScotopica(measure);
