@@ -15,5 +15,7 @@ MCI_SD65 = MelanopsisCircadianIndexSD65(measure);
 RI_SD65 = RetinalIndexSD65(measure);
 RI_LCD = RetinalIndexLCD(measure);
 MCI_LCD = MelanopsisCircadianIndexLCD(measure);
+CI = CircadianIndex(measure);
+NLCI = NonLinearCircadianIndex(measure);
 
 ScotopicEfficiency = calcoloEffScotopica(measure);
