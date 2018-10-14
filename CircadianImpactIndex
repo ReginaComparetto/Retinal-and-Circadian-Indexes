@@ -1,0 +1,43 @@
+% Script per il calcolo del Circadian Impact Index con curva di Luca-Enezi
+% Nz(lambda)
+
+function [CII_ipad CII_D65] = CircadianImpactIndex(misure)
+
+    load workspaceINDICICIRCADIANI.mat
+    load WorkspaceCircadianRetinalData.mat;
+
+    % CI calcolato sempre da 380 a 780. Tutte le lenti sono a passi di 5
+   
+    NzVoluti = selezionaSottoSpettro(Nz, 380, 780, 1);
+    NzVoluti = NzVoluti(:,2);
+    
+    %% ILLUMINANTE IPAD
+    iPadVoluti = selezionaSottoSpettro(ipad, 380, 780, 5);    
+    iPadVoluti = iPadVoluti(:,2);
+
+    nomiLenti = fieldnames(misure);
+
+    for i = 1:numel(nomiLenti)
+        nomeLente = nomiLenti{i};
+        tau = misure.(nomeLente)(:,1:2); % lambda e tau
+        tauVoluti = selezionaSottoSpettro(tau, 380, 780, 1);
+        tauVoluti = tauVoluti(:,2);
+
+        CII_ipad.(nomeLente) = (sum(tauVoluti .* iPadVoluti .* NzVoluti) ./ sum(iPadVoluti .* NzVoluti))/100;
+    end
+    
+    %% ILLUMINANT D65 USATO IN TESI
+    illuminanteD65Voluti = selezionaSottoSpettro(illuminanteD65, 380, 780, 5);
+    illuminanteD65Voluti = illuminanteD65Voluti(:,2);
+
+    nomiLenti = fieldnames(misure);
+
+    for i = 1:numel(nomiLenti)
+        nomeLente = nomiLenti{i};
+        tau = misure.(nomeLente)(:,1:2); % lambda e tau
+        tauVoluti = selezionaSottoSpettro(tau, 380, 780, 1);
+        tauVoluti = tauVoluti(:,2);
+
+        CII_D65.(nomeLente) = (sum(tauVoluti .* illuminanteD65Voluti .* NzVoluti) ./ sum(illuminanteD65Voluti .* NzVoluti))/100;
+    end
+end
