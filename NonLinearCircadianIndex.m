@@ -5,8 +5,7 @@
 % ATTENZIONE AL RANGE DI LAMBDA E AL SALTO DI LAMBDA!!
 
 
-function [NLCI_ipad NLCI_D65] = calcoloNLCI(misure)
-%function rapportoCL = calcoloindiciCL_lenti(misure)
+function [NLCI_ipad NLCI_D65] = NonLinearCircadianIndex(misure)
 
 load workspaceINDICICIRCADIANI.mat
 load WorkspaceCircadianRetinalData.mat;
